@@ -45,3 +45,6 @@ input[placeholder] {
 :-ms-input-placeholder {  
    color: #6441A4;
    }
+button[type=submit] {
+    color: #6441A4;
+}
