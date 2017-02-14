@@ -48,6 +48,6 @@ input[placeholder] {
    color: #6441A4;
    }
    /*Button styling*/
-button[type=submit] {
+button.btn {
     color: #6441A4;
 }
