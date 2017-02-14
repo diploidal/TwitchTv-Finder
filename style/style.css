@@ -12,9 +12,6 @@ nav li a {
     height: 55px;
     padding-bottom: 2px;
 }
-.twitch-color{
-    color:#6441A4;
-}
 div.searchContainer input {
     width: 20%;
 }
@@ -23,10 +20,10 @@ h1 img {
 }
 
 /*Input search*/
-   /* label underline focus color */
+/* label underline focus color */
 input[type=text] {
-     border-bottom: 1px solid #000000;
-     box-shadow: 0 1px 0 0 #000000;
+     border-bottom: 1px solid #d3d3d3;
+     box-shadow: 0 1px 0 0 #d3d3d3;
    }
 input[type=text]:focus:not([readonly]), input[type=text].valid {
      border-bottom: 1px solid #6441A4;
@@ -34,9 +31,6 @@ input[type=text]:focus:not([readonly]), input[type=text].valid {
    }
 input[placeholder] {
     color: #6441A4;
-}
-.validate {
-    color:#6441A4;
 }
 
 
@@ -53,6 +47,7 @@ input[placeholder] {
 :-ms-input-placeholder {  
    color: #6441A4;
    }
+   /*Button styling*/
 button[type=submit] {
     color: #6441A4;
 }
