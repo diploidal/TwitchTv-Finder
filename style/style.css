@@ -1,3 +1,6 @@
+body {
+    background-color:#d3d3d3;
+}
 nav {
     background-color: #ffffff;
 }
@@ -13,7 +16,7 @@ nav li a {
     color:#6441A4;
 }
 div.searchContainer input {
-    width: 30%;
+    width: 20%;
 }
 h1 img {
     height: 55px;
@@ -22,16 +25,21 @@ h1 img {
 /*Input search*/
    /* label underline focus color */
 input[type=text] {
-     border-bottom: 1px solid #d3d3d3;
-     box-shadow: 0 1px 0 0 #d3d3d3;
+     border-bottom: 1px solid #000000;
+     box-shadow: 0 1px 0 0 #000000;
    }
-input[type=text]:focus:not([readonly]) {
+input[type=text]:focus:not([readonly]), input[type=text].valid {
      border-bottom: 1px solid #6441A4;
      box-shadow: 0 1px 0 0 #6441A4;
    }
 input[placeholder] {
     color: #6441A4;
 }
+.validate {
+    color:#6441A4;
+}
+
+
 /* placeholder styling*/
 ::-webkit-input-placeholder {
    color: #6441A4;

@@ -1,4 +1,4 @@
-document.addEventListener('click', function(){
+document.addEventListener('submit', function(){
     document.getElementById('searchBtn');
     
     $(document).ready(function() {
