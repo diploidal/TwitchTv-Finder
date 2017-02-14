@@ -1,0 +1,47 @@
+nav {
+    background-color: #ffffff;
+}
+nav li a {
+    color: #6441A4;
+}
+.nav-wrapper img {
+    padding-top: 10px;
+    height: 55px;
+    padding-bottom: 2px;
+}
+.twitch-color{
+    color:#6441A4;
+}
+div.searchContainer input {
+    width: 30%;
+}
+h1 img {
+    height: 55px;
+}
+
+/*Input search*/
+   /* label underline focus color */
+input[type=text] {
+     border-bottom: 1px solid #d3d3d3;
+     box-shadow: 0 1px 0 0 #d3d3d3;
+   }
+input[type=text]:focus:not([readonly]) {
+     border-bottom: 1px solid #6441A4;
+     box-shadow: 0 1px 0 0 #6441A4;
+   }
+input[placeholder] {
+    color: #6441A4;
+}
+/* placeholder styling*/
+::-webkit-input-placeholder {
+   color: #6441A4;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #6441A4;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #6441A4;
+}
+:-ms-input-placeholder {  
+   color: #6441A4;
+   }
