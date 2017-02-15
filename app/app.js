@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         <div class="card-content">
                           <span class="card-title activator grey-text text-darken-4">${channel_info.display_name}<i class="material-icons right">more_vert</i></span>
 
-                          <p>${channel_info.status}</p>
+                          <p>${channel_info.status} <br>Updated at ${channel_info.updated_at}</p>
                         </div>
 
                         <div class="card-action">
