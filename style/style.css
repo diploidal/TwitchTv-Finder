@@ -44,10 +44,21 @@ input[placeholder] {
 ::-moz-placeholder {  /* Firefox 19+ */
    color: #6441A4;
 }
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
    color: #6441A4;
    }
    /*Button styling*/
 button.btn {
     color: #6441A4;
+}
+
+/*STYLING JQUERY REQUEST*/
+.card {
+  width: 40%;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #6441A4;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+  color: #c5b6e2;
 }
