@@ -1,9 +1,10 @@
+
 let root_URL = 'https://api.twitch.tv/kraken';
 let channel_URL = 'https://api.twitch.tv/kraken/channels/';
 let client_ID = '5tdzz2mcd55pe9bww0uxrduwr44vc7';
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    console.log("DOM properly loaded");
+    console.log("DOM loaded properly");
     $(document).ready(function(e) {
         $('#searchUser').on('change', function(e) {
            e.preventDefault(); //PREVENT SITE RELOAD !
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         <div class="card-content">
                           <span class="card-title activator grey-text text-darken-4">${channel_info.display_name}<i class="material-icons right">more_vert</i></span>
 
-                          <p>${channel_info.status} <br>Updated at ${channel_info.updated_at}</p>
+                          <p>${channel_info.status}
                         </div>
 
                         <div class="card-action">
@@ -38,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         <div class="card-reveal">
                           <span class="card-title grey-text text-darken-4">${channel_info.display_name}<i class="material-icons right">close</i></span>
                           <p>${channel_info.status}</p>
+                          <div class="divider"></div>
+                          <p><b>Game:</b> ${channel_info.game}</p>
+                          <p><b>Followers:</b> ${channel_info.followers}</p>
+                          <p><b>Total views:</b> ${channel_info.views}</p>
+                          <p><b>Broadcaster language:</b> ${channel_info.broadcaster_language}</p>
                         </div>
                       </div>
                      </div>
@@ -46,5 +52,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
             });
         });
     });
+
+
+
+
+
+
+
 
 });
