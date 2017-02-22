@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
            e.preventDefault(); //PREVENT SITE RELOAD !
             let userName = e.target.value;
 
+
+
             //MAKING TWITCH REQUEST
             $.ajax({
                 type: 'GET',
@@ -18,8 +20,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     'Client-ID': client_ID,
                 },
                 success: function(channel_info) {
-                  console.log(channel_URL);
                     console.log(channel_info);
+
+
+
+
+
+
+
+
                     $("#profile").html(`
                      <div class="container">
                       <div class="card sticky-action hoverable">
@@ -27,14 +36,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
                           <img class="activator" src="${channel_info.logo}">
                         </div>
                         <div class="card-content">
-                          <span class="card-title activator grey-text text-darken-4"><b>${channel_info.display_name}</b><i class="material-icons right">more_vert</i></span>
+                          <span class="card-title activator grey-text text-darken-4"><b>${channel_info.display_name}</b>
+                          <i class="material-icons right">more_vert</i></span>
 
                           <p>${channel_info.status}
                         </div>
 
                         <div class="card-action">
-                          <b><a href="${channel_info.url}" target="_blank">Watch LIVE</a></b>
-                          <b><a href="https://www.twitch.tv" target="_blank">Check Twitch.tv</a></b>
+                          <b><a href="${channel_info.url}" target="_blank">Watch ${channel_info.display_name} LIVE</a></b>
+                          <b><a href="https://www.twitch.tv" target="_blank" class="right">Check Twitch.tv</a></b>
                         </div>
 
                         <div class="card-reveal">
@@ -45,11 +55,27 @@ document.addEventListener('DOMContentLoaded', function(event) {
                           <p><b>Followers:</b> ${channel_info.followers}</p>
                           <p><b>Total views:</b> ${channel_info.views}</p>
                           <p><b>Broadcaster language:</b> ${channel_info.broadcaster_language}</p>
-                          <p><b>For mature:</b> ${channel_info.partner}</p>
+                          <p id="partner"><b>Partnered:</b></p>
                         </div>
                       </div>
                      </div>
                     `);
+
+
+
+                    //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
+                    function isPartnered() {
+                      let partnered = channel_info
+                      if(partnered.partner === true){
+                        $("#partner").append("<span> YES</span>")
+                      } else {
+                        $("#partner").append("<span> NO</span>");
+                      }
+                    }
+                    isPartnered();
+
+
+
                 }
             });
         });
