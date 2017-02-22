@@ -52,8 +52,17 @@ document.addEventListener('DOMContentLoaded', function(event) {
                           <p id="created"><b>Channel created:</b></p>
                         </div>
                       </div>
+                      <iframe frameborder="10"
+                        scrolling="yes"
+                        id="${channel_info._id}"
+                        src="${channel_info.url}/chat"
+                        height="800"
+                        width="400">
+                      </iframe>
                      </div>
                     `);
+
+
                     // STATUS CHANGE TIME
                     function statusChange(){
                       var status = channel_info;
