@@ -1,27 +1,26 @@
-
 var root_URL = 'https://api.twitch.tv/kraken';
 var channel_URL = 'https://api.twitch.tv/kraken/channels/';
 var client_ID = '5tdzz2mcd55pe9bww0uxrduwr44vc7';
 
-document.addEventListener('DOMContentLoaded', function(event) {
-    console.log("DOM loaded properly");
-    $(document).ready(function(e) {
-        $('#searchUser').on('change', function(e) {
-           e.preventDefault(); //PREVENT SITE RELOAD !
-            var userName = e.target.value;
+document.addEventListener('DOMContentLoaded', function (event) {
+  console.log("DOM loaded properly");
+  $(document).ready(function (e) {
+    $('#searchUser').on('change', function (e) {
+      e.preventDefault(); //PREVENT SITE RELOAD !
+      var userName = e.target.value;
 
 
 
-            //MAKING TWITCH REQUEST
-            $.ajax({
-                type: 'GET',
-                url: channel_URL + userName,
-                headers: {
-                    'Client-ID': client_ID,
-                },
-                success: function(channel_info) {
-                    console.log(channel_info);
-                    $("#profile").html(`
+      //MAKING TWITCH REQUEST
+      $.ajax({
+        type: 'GET',
+        url: channel_URL + userName,
+        headers: {
+          'Client-ID': client_ID,
+        },
+        success: function (channel_info) {
+          console.log(channel_info);
+          $("#profile").html(`
                      <div class="container">
                       <div class="card sticky-action hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
@@ -52,50 +51,63 @@ document.addEventListener('DOMContentLoaded', function(event) {
                           <p id="created"><b>Channel created:</b></p>
                         </div>
                       </div>
-                      <iframe frameborder="10"
-                        scrolling="yes"
-                        id="${channel_info._id}"
-                        src="${channel_info.url}/chat"
-                        height="800"
-                        width="400">
-                      </iframe>
                      </div>
+
+                      <div class="embedVideo">
+                        <iframe
+                          src="http://player.twitch.tv/?channel=${channel_info.name}"
+                          height="720"
+                          width="1280"
+                          frameborder="10"
+                          scrolling="no"
+                          allowfullscreen="true">
+                        </iframe>
+                      </div>
+                      <div class="embedChat">
+                        <iframe frameborder="10"
+                          scrolling="yes"
+                          id="${channel_info._id}"
+                          src="${channel_info.url}/chat"
+                          height="720"
+                          width="400">
+                        </iframe>
+                      </div>
                     `);
 
 
-                    // STATUS CHANGE TIME
-                    function statusChange(){
-                      var status = channel_info;
-                      var lastUpade = Date.parse(status.updated_at);
-                      var finalUpdate = new Date(lastUpade);
-                        $("#updated").append("<span> " + finalUpdate + "</span>");
-                    }
-                    statusChange();
-                    //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
-                    function isPartnered() {
-                      var partnered = channel_info;
-                      if(partnered.partner === true){
-                        $("#partner").append("<span> Yes</span>")
-                      } else {
-                        $("#partner").append("<span> No</span>");
-                      }
-                    };
-                    isPartnered();
+          // STATUS CHANGE TIME
+          function statusChange() {
+            var status = channel_info;
+            var lastUpade = Date.parse(status.updated_at);
+            var finalUpdate = new Date(lastUpade);
+            $("#updated").append("<span> " + finalUpdate + "</span>");
+          }
+          statusChange();
+          //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
+          function isPartnered() {
+            var partnered = channel_info;
+            if (partnered.partner === true) {
+              $("#partner").append("<span> Yes</span>")
+            } else {
+              $("#partner").append("<span> No</span>");
+            }
+          };
+          isPartnered();
 
 
-                    // Parse date from JSON in to Epoch timestamp(unix timestamp) and convert in to standard format
-                    function createdAt() {
-                      var created = channel_info;
-                      var epochDate = Date.parse(created.created_at);
-                      var normalDate = new Date(epochDate);
-                        $("#created").append("<span> " + normalDate + "</span>");
-                    };
-                    createdAt();
-  
+          // Parse date from JSON in to Epoch timestamp(unix timestamp) and convert in to standard format
+          function createdAt() {
+            var created = channel_info;
+            var epochDate = Date.parse(created.created_at);
+            var normalDate = new Date(epochDate);
+            $("#created").append("<span> " + normalDate + "</span>");
+          };
+          createdAt();
 
 
-                }
-            });
-        });
+
+        }
+      });
     });
+  });
 });
