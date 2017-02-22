@@ -1,14 +1,14 @@
 
-let root_URL = 'https://api.twitch.tv/kraken';
-let channel_URL = 'https://api.twitch.tv/kraken/channels/';
-let client_ID = '5tdzz2mcd55pe9bww0uxrduwr44vc7';
+var root_URL = 'https://api.twitch.tv/kraken';
+var channel_URL = 'https://api.twitch.tv/kraken/channels/';
+var client_ID = '5tdzz2mcd55pe9bww0uxrduwr44vc7';
 
 document.addEventListener('DOMContentLoaded', function(event) {
     console.log("DOM loaded properly");
     $(document).ready(function(e) {
         $('#searchUser').on('change', function(e) {
            e.preventDefault(); //PREVENT SITE RELOAD !
-            let userName = e.target.value;
+            var userName = e.target.value;
 
 
 
@@ -21,14 +21,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 },
                 success: function(channel_info) {
                     console.log(channel_info);
-
-
-
-
-
-
-
-
                     $("#profile").html(`
                      <div class="container">
                       <div class="card sticky-action hoverable">
@@ -56,24 +48,34 @@ document.addEventListener('DOMContentLoaded', function(event) {
                           <p><b>Total views:</b> ${channel_info.views}</p>
                           <p><b>Broadcaster language:</b> ${channel_info.broadcaster_language}</p>
                           <p id="partner"><b>Partnered:</b></p>
+                          <p id="created"><b>Channel created:</b></p>
                         </div>
                       </div>
                      </div>
                     `);
 
-
-
                     //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
                     function isPartnered() {
-                      let partnered = channel_info
+                      var partnered = channel_info;
                       if(partnered.partner === true){
                         $("#partner").append("<span> YES</span>")
                       } else {
                         $("#partner").append("<span> NO</span>");
                       }
-                    }
+                    };
                     isPartnered();
 
+
+                    // Parse date from JSON in to Epoch timestamp(unix timestamp) and convert in to standard format
+                    function createdAt() {
+                      var created = channel_info;
+                      var epochDate = Date.parse(created.created_at);
+                      var normalDate = new Date(epochDate);
+                      console.log(normalDate);
+                        $("#created").append("<span> " + normalDate + "</span>");
+                    };
+                    createdAt();
+  
 
 
                 }
