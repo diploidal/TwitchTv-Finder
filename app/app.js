@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                           <span class="card-title activator grey-text text-darken-4"><b>${channel_info.display_name}</b>
                           <i class="material-icons right">more_vert</i></span>
 
-                          <p>${channel_info.status}
+                          <p>${channel_info.status}</p>
                         </div>
 
                         <div class="card-action">
@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         <div class="card-reveal">
                           <span class="card-title grey-text text-darken-4">${channel_info.display_name}<i class="material-icons right">close</i></span>
                           <p>${channel_info.status}</p>
+                          <p id="updated"><b>Updated status at: </b></p> 
                           <div class="divider"></div>
                           <p><b>Playing:</b> ${channel_info.game}</p>
                           <p><b>Followers:</b> ${channel_info.followers}</p>
@@ -53,14 +54,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
                       </div>
                      </div>
                     `);
-
+                    // STATUS CHANGE TIME
+                    function statusChange(){
+                      var status = channel_info;
+                      var lastUpade = Date.parse(status.updated_at);
+                      var finalUpdate = new Date(lastUpade);
+                        $("#updated").append("<span> " + finalUpdate + "</span>");
+                    }
+                    statusChange();
                     //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
                     function isPartnered() {
                       var partnered = channel_info;
                       if(partnered.partner === true){
-                        $("#partner").append("<span> YES</span>")
+                        $("#partner").append("<span> Yes</span>")
                       } else {
-                        $("#partner").append("<span> NO</span>");
+                        $("#partner").append("<span> No</span>");
                       }
                     };
                     isPartnered();
@@ -71,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
                       var created = channel_info;
                       var epochDate = Date.parse(created.created_at);
                       var normalDate = new Date(epochDate);
-                      console.log(normalDate);
                         $("#created").append("<span> " + normalDate + "</span>");
                     };
                     createdAt();
