@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                      <div class="container main">
                       <div class="row">
                         <div class="col s12">
-                          <ul class="tabs tabs-fixed-width hoverable">
+                          <ul class="tabs tabs-fixed-width">
                             <li class="tab col s4"><a class="active" href="#info">Channel Info</a></li>
                             <li class="tab col s4"><a href="#stream">Stream</a></li>
                             <li class="tab col s4"><a href="#addinfo">Additional Info</a></li>
@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
                                 <div class="divider"></div>
                               </div>
                               <div class="col s12 m6"><p id="updated"><b>Status updated at: </b></p></div>
-                              <div class="col s12 m6"><p><b>Followers:</b> ${channel_info.followers}</p></div>
+                              <div class="col s12 m6"><p id="follower-ammount"><b>Followers:</b> </p></div>
+                              <div class="col s12 m6"><p><b>Total views: </b> ${channel_info.views}</p></div>
 
 
 
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             $("#updated").append("<span> " + finalUpdate + "</span>");
           }
           statusChange();
+
           //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
           function isPartnered() {
             var partnered = channel_info;
@@ -123,11 +125,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
           };
           createdAt();
 
+          //Tab initialization
             $(document).ready(function(){
               $('ul.tabs').tabs();
             });
 
-
+            //Formating numbers with commas
+            function addCommas() {
+              var followerAmmount = channel_info;
+              var finalNumber = ((followerAmmount.followers).toLocaleString());
+              $("#follower-ammount").append("<span>" + finalNumber + "</span>")
+            }
+            addCommas();
+            
         }
       });
     });
