@@ -35,15 +35,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
                           <div id="info" class="col s12 center">
                               <div class="col s12 m6"><img src="${channel_info.logo}"></div>
                               <div class="col s12 m6"><p class="flow-text bold">${channel_info.display_name}</p></div>
-                              <div class="col s12 m6"><p>${channel_info.status}</p></div>
-                              <div class="divider"></div>
-                              
+                              <div class="col s12 m6"><p><b>Status:</b> ${channel_info.status}</p></div>
+                              <div class="col s12 m6"><p><b>Playing:</b> ${channel_info.game}</p>
+                                <div class="divider"></div>
+                              </div>
+                              <div class="col s12 m6"><p id="updated"><b>Status updated at: </b></p></div>
+                              <div class="col s12 m6"><p><b>Followers:</b> ${channel_info.followers}</p></div>
+
+
+
 
                             </div>
                         </div>
-
-
-
 
 
                             <div id="stream" class="col s12 m2 l2">Test 2</div>
