@@ -2,6 +2,7 @@ var root_URL = 'https://api.twitch.tv/kraken';
 var channel_URL = 'https://api.twitch.tv/kraken/channels/';
 var client_ID = '5tdzz2mcd55pe9bww0uxrduwr44vc7';
 
+
 document.addEventListener('DOMContentLoaded', function (event) {
   console.log("DOM loaded properly");
   $(document).ready(function (e) {
@@ -25,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
                       <div class="row">
                         <div class="col s12">
                           <ul class="tabs tabs-fixed-width">
-                            <li class="tab col s4"><a class="active" href="#info">Channel Info</a></li>
-                            <li class="tab col s4"><a href="#stream">Stream</a></li>
-                            <li class="tab col s4"><a href="#addinfo">Additional Info</a></li>
+                            <li class="tab col s4"><a class="active waves-effect" href="#info">Channel Info</a></li>
+                            <li class="tab col s4"><a class="waves-effect" href="#stream">Stream</a></li>
+                            <li class="tab col s4"><a class="waves-effect" href="#addinfo">Additional Info</a></li>
                           </ul>
                         </div>
                         </div>
@@ -39,9 +40,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
                               <div class="col s12 m6"><p><b>Playing:</b> ${channel_info.game}</p>
                                 <div class="divider"></div>
                               </div>
-                              <div class="col s12 m6"><p id="updated"><b>Status updated at: </b></p></div>
+                              <div class="col s12 m6"><p id="updated"><b>Status updated: </b></p></div>
+                              <div class="col s12 m6"><p id="partner"><b>Partnered: </b></p></div>
+                              <div class="col s12 m6"><p id="created"><b>Channel created:</b> </p></div>
                               <div class="col s12 m6"><p id="follower-ammount"><b>Followers:</b> </p></div>
-                              <div class="col s12 m6"><p><b>Total views: </b> ${channel_info.views}</p></div>
+                              <div class="col s12 m6"><p id="total-views"><b>Total views: </b> </p></div>
+                              <div class="col s12 m6"><p><b>Broadcaster language: </b>${channel_info.broadcaster_language}</p></div>
 
 
 
@@ -94,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
                      </div> 
                     `);
 
-
           // STATUS CHANGE TIME
           function statusChange() {
             var status = channel_info;
@@ -130,14 +133,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
               $('ul.tabs').tabs();
             });
 
-            //Formating numbers with commas
+            //Formating numbers with commas (followers and total views numbers)
             function addCommas() {
-              var followerAmmount = channel_info;
-              var finalNumber = ((followerAmmount.followers).toLocaleString());
-              $("#follower-ammount").append("<span>" + finalNumber + "</span>")
+              var a = channel_info;
+              var followerAmmount = ((a.followers).toLocaleString());
+              var totalViews = ((a.views).toLocaleString());
+              $("#follower-ammount").append("<span>" + followerAmmount + "</span>");
+              $("#total-views").append("<span>" + totalViews + "</span>");
+
             }
             addCommas();
-            
+
         }
       });
     });
