@@ -91,26 +91,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
                      </div> 
-
-                      <div class="embedVideo">
-                        <iframe
-                          src="http://player.twitch.tv/?channel=${channel_info.name}"
-                          height="720"
-                          width="1280"
-                          frameborder="10"
-                          scrolling="no"
-                          allowfullscreen="true">
-                        </iframe>
-                      </div>
-                      <div class="embedChat">
-                        <iframe frameborder="10"
-                          scrolling="yes"
-                          id="${channel_info._id}"
-                          src="${channel_info.url}/chat"
-                          height="720"
-                          width="400">
-                        </iframe>
-                      </div>
                     `);
 
 
@@ -118,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
           function statusChange() {
             var status = channel_info;
             var lastUpade = Date.parse(status.updated_at);
-            var finalUpdate = new Date(lastUpade);
+            var finalUpdate = new Date(lastUpade).toUTCString();
             $("#updated").append("<span> " + finalUpdate + "</span>");
           }
           statusChange();
@@ -138,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
           function createdAt() {
             var created = channel_info;
             var epochDate = Date.parse(created.created_at);
-            var normalDate = new Date(epochDate);
+            var normalDate = new Date(epochDate).toUTCString();
             $("#created").append("<span> " + normalDate + "</span>");
           };
           createdAt();
