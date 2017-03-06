@@ -21,7 +21,41 @@ document.addEventListener('DOMContentLoaded', function (event) {
         success: function (channel_info) {
           console.log(channel_info);
           $("#profile").html(`
-                     <div class="container">
+                     <div class="container main">
+                      <div class="row">
+                        <div class="col s12">
+                          <ul class="tabs tabs-fixed-width hoverable">
+                            <li class="tab col s4"><a class="active" href="#info">Channel Info</a></li>
+                            <li class="tab col s4"><a href="#stream">Stream</a></li>
+                            <li class="tab col s4"><a href="#addinfo">Additional Info</a></li>
+                          </ul>
+                        </div>
+                        </div>
+                        <div class="row">
+                          <div id="info" class="col s12 center">
+                              <div class="col s12 m6"><img src="${channel_info.logo}"></div>
+                              <div class="col s12 m6"><p class="flow-text bold">${channel_info.display_name}</p></div>
+                              <div class="col s12 m6"><p>${channel_info.status}</p></div>
+                              <div class="divider"></div>
+                              
+
+                            </div>
+                        </div>
+
+
+
+
+
+                            <div id="stream" class="col s12 m2 l2">Test 2</div>
+                            <div id="addinfo" class="col s12 m2 l2">Test 3</div>
+                          </div>
+                       </div>
+
+
+
+
+
+
                       <div class="card sticky-action hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
                           <img class="activator" src="${channel_info.logo}">
@@ -51,7 +85,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
                           <p id="created"><b>Channel created:</b></p>
                         </div>
                       </div>
-                     </div>
+
+
+                     </div> 
 
                       <div class="embedVideo">
                         <iframe
@@ -104,6 +140,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
           };
           createdAt();
 
+            $(document).ready(function(){
+              $('ul.tabs').tabs();
+            });
 
 
         }
