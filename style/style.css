@@ -105,10 +105,15 @@ button.btn {
     color: #6441A4;
 }
 
-#info {
+/*#info, #addinfo {
     padding:8px;
-}
+}*/
 #info img {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+#addinfo img {
     min-width: 100%;
     max-width: 100%;
     height: auto;
