@@ -15,3 +15,5 @@ I'm thinking about rebuilding it with Angular2 or ReactJS in near future. :-)
 
 # Known issues
 For some reason GitHub Pages does not work well with fetching stream `<iframe>` element in `STREAM` tab (I'm investigating problem).
+# EDIT:
+GitHub Pages does not allot to use embed videos (such as iframe object). It works perfectly fine locally or on other host.
