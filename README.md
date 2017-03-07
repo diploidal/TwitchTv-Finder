@@ -12,3 +12,6 @@ I'm thinking about rebuilding it with Angular2 or ReactJS in near future. :-)
 - jQuery (Pulling AJAX data from Twitch.tv API)
 - Twitch.TV Documentation/API [Twitch.TV](http://dev.twitch.tv)
 - [Materialize CSS](http://materializecss.com) Becouse I love Material Design :-)
+
+# Known issues
+For some reason GitHub Pages does not work well with fetching stream `<iframe>` element in `STREAM` tab (I'm investigating problem).
