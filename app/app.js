@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             <li class="tab col s4"><a class="waves-effect" href="#stream">Stream</a></li>
                             <li class="tab col s4"><a class="waves-effect" href="#addinfo">Additional Info</a></li>
                           </ul>
-                        </div>
-                        </div>
+                      </div>
+                     </div>
                         <div class="row">
                           <div id="info" class="col s12 center">
                               <div class="col s12 m6"><img src="${channel_info.logo}"></div>
-                              <div class="col s12 m6"><p class="flow-text bold">${channel_info.display_name}</p></div>
+                              <div class="col s12 m6"><h4><b>${channel_info.display_name}</b></h4></div>
                               <div class="col s12 m6"><p><b>Status:</b> ${channel_info.status}</p></div>
                               <div class="col s12 m6"><p><b>Playing:</b> ${channel_info.game}</p></div>
                               <div class="col s12 m6"><p><b>Offline banner:</b></p><img src=${channel_info.video_banner}></div>
@@ -62,14 +62,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
                                 width="320">
                               </iframe>
                               </div>
-
                            </div>
                         </div>
-
                         <div class="row">
                           <div id="addinfo" class="col s12 center">
                             <div class="col s12 m6"><img src="${channel_info.logo}"></div>
-                            <div class="col s12 m6"><p class="flow-text bold">${channel_info.display_name}</p></div>
+                            <div class="col s12 m6"><h4><b>${channel_info.display_name}</b></h4></div>
                             <div class="col s12 m6"><p><b>Status:</b> ${channel_info.status}</p></div>
                             <div class="col s12 m6"><p><b>Playing:</b> ${channel_info.game}</p>
                               <div class="divider"></div>
@@ -82,23 +80,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             <div class="col s12 m6"><p><b>Broadcaster language: </b>${channel_info.broadcaster_language}</p></div>
                           </div>
                         </div>
-
-            
-                          </div>
                        </div>
-
+                     </div>
                     `);
-
-          // STATUS CHANGE TIME
+          //Status time change
           function statusChange() {
             var status = channel_info;
             var lastUpade = Date.parse(status.updated_at);
             var finalUpdate = new Date(lastUpade).toUTCString();
             $("#updated").append("<span> " + finalUpdate + "</span>");
           }
-          statusChange();
 
-          //CHANGING TRUE/FALSE STATEMENT IN TO STRING (FROM JSON REQUEST)
+          //Changing true/false statement in to string
           function isPartnered() {
             var partnered = channel_info;
             if (partnered.partner === true) {
@@ -107,8 +100,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
               $("#partner").append("<span> No</span>");
             }
           };
-          isPartnered();
-
 
           // Parse date from JSON in to Epoch timestamp(unix timestamp) and convert in to standard format
           function createdAt() {
@@ -117,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
             var normalDate = new Date(epochDate).toUTCString();
             $("#created").append("<span> " + normalDate + "</span>");
           };
-          createdAt();
 
           //Tab initialization
             $(document).ready(function(){
@@ -131,10 +121,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
               var totalViews = ((a.views).toLocaleString());
               $("#follower-ammount").append("<span>" + followerAmmount + "</span>");
               $("#total-views").append("<span>" + totalViews + "</span>");
-
             }
-            addCommas();
-
+            //Calling back all functions
+          statusChange();
+          isPartnered();
+          createdAt();
+          addCommas();
         }
       });
     });

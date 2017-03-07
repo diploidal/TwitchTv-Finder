@@ -19,7 +19,6 @@ div.searchContainer input {
 h1 img {
     height: 55px;
 }
-
 /*Input search*/
 /* label underline focus color */
 input[type=text] {
@@ -33,8 +32,6 @@ input[type=text]:focus:not([readonly]), input[type=text].valid {
 input[placeholder] {
     color: #6441A4;
 }
-
-
 /* placeholder styling*/
 ::-webkit-input-placeholder {
    color: #6441A4;
@@ -52,17 +49,7 @@ input[placeholder] {
 button.btn {
     color: #6441A4;
 }
-
-/*STYLING JQUERY REQUEST*/
-.card {
-  width: 40%;
-}
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-  color: #6441A4;
-}
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
-  color: #c5b6e2;
-}
+/*Styling jquery request*/
 .main{
     background-color: #ffffff;
     /*border: 1px solid #6441A4;*/
@@ -77,19 +64,8 @@ button.btn {
 .tabs .tab a {
     color: #6441A4;
 }
-#info img {
+#info img, #addinfo img {
     min-width: 100%;
     max-width: 100%;
     height: auto;
-}
-#addinfo img {
-    min-width: 100%;
-    max-width: 100%;
-    height: auto;
-}
-.bold {
-    font-weight: bold;
-}
-.flow-text {
-    margin:0;
 }
