@@ -1,4 +1,5 @@
 # TwitchTv-Finder
+## Check it out at [GitHub Pages](https://diploidal.github.io/TwitchTv-Finder/).
 Simple page/webapp that fetches informations about user profiles on [Twitch.TV](https://twitch.tv).
 
 An errors with responsiveness may occure.
