@@ -63,33 +63,6 @@ button.btn {
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
   color: #c5b6e2;
 }
-.embedVideo {
-    position:relative;
-    padding-bottom:60.0%;
-    height:0;
- }
-.embedVideo iframe{
-    position:absolute;
-    top:0;
-    left:0;
-    width:70%;
-    height:70%;
-    border:0;
- }
- .embedChat {
-    position:relative;
-    padding-bottom:60.0%;
-    height:0;
- }
-.embedChat iframe{
-    position:absolute;
-    top:0;
-    left:0;
-    width:20%;
-    height:70%;
-    border:0;
- }
-
 .main{
     background-color: #ffffff;
     /*border: 1px solid #6441A4;*/
@@ -104,10 +77,6 @@ button.btn {
 .tabs .tab a {
     color: #6441A4;
 }
-
-/*#info, #addinfo {
-    padding:8px;
-}*/
 #info img {
     min-width: 100%;
     max-width: 100%;

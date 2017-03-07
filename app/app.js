@@ -38,11 +38,33 @@ document.addEventListener('DOMContentLoaded', function (event) {
                               <div class="col s12 m6"><p class="flow-text bold">${channel_info.display_name}</p></div>
                               <div class="col s12 m6"><p><b>Status:</b> ${channel_info.status}</p></div>
                               <div class="col s12 m6"><p><b>Playing:</b> ${channel_info.game}</p></div>
+                              <div class="col s12 m6"><p><b>Offline banner:</b></p><img src=${channel_info.video_banner}></div>
                             </div>
                         </div>
 
+                        <div class="row">
+                          <div id="stream" class="col s12">
+                            <div class="video-container">
+                              <iframe src="http://player.twitch.tv/?channel=${channel_info.name}"
+                                height="720"
+                                width="1280"
+                                frameborder="0"
+                                scrolling="no"
+                                allowfullscreen="true">
+                              </iframe>
+                            </div>
+                            <div class="center">
+                              <iframe frameborder="0"
+                                scrolling="yes"
+                                id="${channel_info._id}"
+                                src="${channel_info.url}/chat"
+                                height="720"
+                                width="320">
+                              </iframe>
+                              </div>
 
-
+                           </div>
+                        </div>
 
                         <div class="row">
                           <div id="addinfo" class="col s12 center">
