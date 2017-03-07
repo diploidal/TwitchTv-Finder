@@ -45,13 +45,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         <div class="row">
                           <div id="stream" class="col s12">
                             <div class="video-container">
-                              <iframe src="http://player.twitch.tv/?channel=${channel_info.name}"
-                                height="720"
-                                width="1280"
-                                frameborder="0"
-                                scrolling="no"
-                                allowfullscreen="true">
-                              </iframe>
+                              
                             </div>
                             <div class="center">
                               <iframe frameborder="0"
@@ -122,11 +116,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
               $("#follower-ammount").append("<span>" + followerAmmount + "</span>");
               $("#total-views").append("<span>" + totalViews + "</span>");
             }
+
+            function embedIframe() {
+a=document.getElementsByClassName('video-container')[0];
+b=document.createElement('iframe');
+var link = "http://player.twitch.tv/?channel="+(channel_info.name);
+b.src=link;
+a.appendChild(b); 
+            }
             //Calling back all functions
           statusChange();
           isPartnered();
           createdAt();
           addCommas();
+          embedIframe();
         }
       });
     });
